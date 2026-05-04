@@ -18,7 +18,8 @@ jQuery(document).ready(function($){
     var $lensImg = $lens.find('img');
 
     // Read zoom level from localized settings (default 2×)
-    var zoomLevel = (typeof agenixMagnifyOpts !== 'undefined' && agenixMagnifyOpts.zoom) ? agenixMagnifyOpts.zoom : 2;
+    var zoomLevel = (typeof agenixMagnify !== 'undefined' && agenixMagnify.zoom) ? agenixMagnify.zoom : 2;
+
 
     // Scale lens image proportionally
     $lensImg.css({

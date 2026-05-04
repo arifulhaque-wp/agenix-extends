@@ -35,11 +35,13 @@ add_action('admin_init', function(){
 
 
     add_settings_field('agenix_extends_zoom', __('Zoom Level', 'agenix-extends'), function(){
-        $opts = get_option('agenix_extends_settings', []);
-        $zoom = !empty($opts['magnify_zoom']) ? intval($opts['magnify_zoom']) : 2;
+        $opts = get_option('agenix_extends_magnify', []);
+        $zoom = !empty($opts['zoom']) ? intval($opts['zoom']) : 2;
         ?>
         <div class="agenix-zoom-wrap">
-            <input type="range" min="1" max="5" step="1" name="agenix_extends_settings[magnify_zoom]" value="<?php echo esc_attr($zoom); ?>" id="agenix-zoom-range" />
+            <input type="range" min="1" max="5" step="1"
+                name="agenix_extends_magnify[zoom]"
+                value="<?php echo esc_attr($zoom); ?>" id="agenix-zoom-range" />
             <span id="agenix-zoom-value"><?php echo esc_html($zoom).'×'; ?></span>
         </div>
         <?php
