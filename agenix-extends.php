@@ -29,7 +29,7 @@ add_action( 'admin_menu', function() {
         'manage_options',
         'agenix-extends',
         'agenix_extends_dashboard',
-        'dashicons-admin-plugins',
+        'dashicons-block-default',
         30
     );
 });
