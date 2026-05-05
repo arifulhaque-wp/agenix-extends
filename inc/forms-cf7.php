@@ -38,22 +38,22 @@ function agenix_extends_get_form_templates(){
     return [
         'simple' => [
             'title'   => 'Simple Contact Form',
-            'content' => '[text* your-name placeholder "Your Name"] [email* your-email placeholder "Your Email"] [textarea your-message placeholder "Message"] [submit "Send"]',
+            'content' => '<label> Your name [text* your-name placeholder "Your Name"] </label> <label> Your email [email* your-email placeholder "Your Email"] </label> <label> Your message (optional) [textarea your-message placeholder "Message"] </label> [submit "Send"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form1.png'
         ],
         'feedback' => [
             'title'   => 'Feedback Form',
-            'content' => '[text* first-name placeholder "First Name"] [text* last-name placeholder "Last Name"] [tel* your-tel placeholder "123-456-7890"] [email* your-email placeholder "Email"] [textarea feedback placeholder "Your Feedback"] [submit "Submit Feedback"]',
+            'content' => '<label> First name [text* first-name placeholder "First Name"] </label> <label> Last name [text* last-name placeholder "Last Name"] </label> <label> Telephone [tel* your-tel placeholder "123-456-7890"] </label> <label> Your email [email* your-email placeholder "Email"] </label> <label> Your message (optional) [textarea feedback placeholder "Your Feedback"] </label> [submit "Submit Feedback"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form2.png'
         ],
         'support' => [
             'title'   => 'Support Request',
-            'content' => '[text* first-name placeholder "First Name"] [text* last-name placeholder "Last Name"] [email* your-email placeholder "Email"] [text* subject placeholder "Subject"] [textarea details placeholder "Describe your issue"] [submit "Request Support"]',
+            'content' => '<label> First name [text* first-name placeholder "First Name"] </label> <label> Last name [text* last-name placeholder "Last Name"] </label> <label> First email [email* your-email placeholder "Email"] </label> <label> Subject [text* subject placeholder "Subject"] </label> <label> Your message (optional) [textarea details placeholder "Describe your issue"] </label> [submit "Request Support"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form3.webp'
         ],
         'newsletter' => [
             'title'   => 'Newsletter Signup',
-            'content' => '[email* your-email placeholder "Email"] [submit "Subscribe"]',
+            'content' => '<label> Your Email [email* your-email placeholder "Email"] </label> [submit "Subscribe"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form4.jpg'
         ],
     ];
