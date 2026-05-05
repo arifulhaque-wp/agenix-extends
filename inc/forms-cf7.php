@@ -38,22 +38,68 @@ function agenix_extends_get_form_templates(){
     return [
         'simple' => [
             'title'   => 'Simple Contact Form',
-            'content' => '<label> Your name [text* your-name placeholder "Your Name"] </label> <label> Your email [email* your-email placeholder "Your Email"] </label> <label> Your message (optional) [textarea your-message placeholder "Message"] </label> [submit "Send"]',
+            'content' => 
+                '<label>Your name 
+                    [text* your-name placeholder "Your Name"]</label>
+            
+                <label>Your email 
+                    [email* your-email placeholder "Your Email"]</label>
+                
+                <label>Your message (optional) 
+                    [textarea your-message placeholder "Message"]</label>
+                
+                [submit "Send"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form1.png'
         ],
         'feedback' => [
             'title'   => 'Feedback Form',
-            'content' => '<label> First name [text* first-name placeholder "First Name"] </label> <label> Last name [text* last-name placeholder "Last Name"] </label> <label> Telephone [tel* your-tel placeholder "123-456-7890"] </label> <label> Your email [email* your-email placeholder "Email"] </label> <label> Your message (optional) [textarea feedback placeholder "Your Feedback"] </label> [submit "Submit Feedback"]',
+            'content' => '
+                <label>First name 
+                    [text* first-name placeholder "First Name"]</label>
+                
+                <label>Last name 
+                    [text* last-name placeholder "Last Name"]</label>
+                
+                <label>Telephone 
+                    [tel* your-tel placeholder "123-456-7890"]</label>
+                
+                <label>Your email 
+                    [email* your-email placeholder "Email"]</label>
+                
+                <label>Your message (optional) 
+                    [textarea feedback placeholder "Your Feedback"]</label>
+                
+                [submit "Submit Feedback"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form2.png'
         ],
         'support' => [
             'title'   => 'Support Request',
-            'content' => '<label> First name [text* first-name placeholder "First Name"] </label> <label> Last name [text* last-name placeholder "Last Name"] </label> <label> First email [email* your-email placeholder "Email"] </label> <label> Subject [text* subject placeholder "Subject"] </label> <label> Your message (optional) [textarea details placeholder "Describe your issue"] </label> [submit "Request Support"]',
+            'content' => '
+                <label>First name 
+                    [text* first-name placeholder "First Name"]</label>
+                
+                    <label>Last name 
+                        [text* last-name placeholder "Last Name"]</label>
+                    
+                    <label>Email 
+                        [email* your-email placeholder "Email"]</label>
+                    
+                    <label>Subject 
+                        [text* subject placeholder "Subject"]</label>
+                    
+                    <label>Your message (optional) 
+                        [textarea details placeholder "Describe your issue"]</label>
+                    
+                    [submit "Request Support"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form3.webp'
         ],
         'newsletter' => [
             'title'   => 'Newsletter Signup',
-            'content' => '<label> Your Email [email* your-email placeholder "Email"] </label> [submit "Subscribe"]',
+            'content' => '
+                <label>Your Email 
+                    [email* your-email placeholder "Email"]</label>
+                
+                [submit "Subscribe"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form4.jpg'
         ],
     ];
@@ -86,9 +132,19 @@ add_action('admin_post_agenix_extends_create_form', function(){
                 if ( class_exists( 'WPCF7_ContactForm' ) ) {
                     $contact_form = WPCF7_ContactForm::get_instance( $post_id );
                     if ( $contact_form ) {
-                        $contact_form->set_properties( [
+                        $contact_form->set_properties([
                             'form' => $tpl['content'],
-                        ] );
+                            'mail' => [
+                                'recipient' => '[_site_admin_email]', // or [_site_admin_email]
+                                'sender'    => '[_site_title] <agenix@gmail.com>',
+                                'subject'   => '[_site_title] "[your-subject]"',
+                                'additional_headers' => "Reply-To: [your-email]",
+                                'body'      => "From: [your-name] [your-email]\nSubject: [your-subject]\n\nMessage Body:\n[your-message]\n\n--\nThis is a notification that a contact form was submitted on your website ([_site_title] [_site_url]).",
+                                'exclude_blank' => 1,
+                                'use_html'      => 1,
+                            ],
+                        ]);
+
                         $contact_form->save();
 
                         // Re-fetch to ensure shortcode is populated
@@ -106,8 +162,7 @@ add_action('admin_post_agenix_extends_create_form', function(){
 
                 // Store shortcode in transient
                 set_transient('agenix_cf7_created_shortcode', $shortcode, 60);
-
-
+                
                 wp_safe_redirect(add_query_arg([
                     'page'    => 'agenix-extends',
                     'tab'     => 'forms'
