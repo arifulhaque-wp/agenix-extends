@@ -39,14 +39,14 @@ function agenix_extends_get_form_templates(){
         'simple' => [
             'title'   => 'Simple Contact Form',
             'content' => 
-                '<label>Your name 
-                    [text* your-name placeholder "Your Name"]</label>
+                '<label>Your name </label>
+                    [text* your-name placeholder "Your Name"]
             
-                <label>Your email 
-                    [email* your-email placeholder "Your Email"]</label>
+                <label>Your email </label>
+                    [email* your-email placeholder "Your Email"]
                 
-                <label>Your message (optional) 
-                    [textarea your-message placeholder "Message"]</label>
+                <label>Your message (optional) </label>
+                    [textarea your-message placeholder "Message"]
                 
                 [submit "Send"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form1.png'
@@ -54,20 +54,20 @@ function agenix_extends_get_form_templates(){
         'feedback' => [
             'title'   => 'Feedback Form',
             'content' => '
-                <label>First name 
-                    [text* first-name placeholder "First Name"]</label>
+                <label>First name </label>
+                    [text* first-name placeholder "First Name"]
                 
-                <label>Last name 
-                    [text* last-name placeholder "Last Name"]</label>
+                <label>Last name </label>
+                    [text* last-name placeholder "Last Name"]
                 
-                <label>Telephone 
-                    [tel* your-tel placeholder "123-456-7890"]</label>
+                <label>Telephone </label>
+                    [tel* your-tel placeholder "123-456-7890"]
                 
-                <label>Your email 
-                    [email* your-email placeholder "Email"]</label>
+                <label>Your email </label>
+                    [email* your-email placeholder "Email"]
                 
-                <label>Your message (optional) 
-                    [textarea feedback placeholder "Your Feedback"]</label>
+                <label>Your message (optional) </label>
+                    [textarea feedback placeholder "Your Feedback"]
                 
                 [submit "Submit Feedback"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form2.png'
@@ -75,20 +75,20 @@ function agenix_extends_get_form_templates(){
         'support' => [
             'title'   => 'Support Request',
             'content' => '
-                <label>First name 
-                    [text* first-name placeholder "First Name"]</label>
+                <label for="first-name">First name </label>
+                    [text* first-name placeholder "First Name"]
                 
-                    <label>Last name 
-                        [text* last-name placeholder "Last Name"]</label>
+                    <label>Last name </label>
+                        [text* last-name placeholder "Last Name"]
                     
-                    <label>Email 
-                        [email* your-email placeholder "Email"]</label>
+                    <label>Email </label>
+                        [email* your-email placeholder "Email"]
                     
-                    <label>Subject 
-                        [text* subject placeholder "Subject"]</label>
+                    <label>Subject </label>
+                        [text* subject placeholder "Subject"]
                     
-                    <label>Your message (optional) 
-                        [textarea details placeholder "Describe your issue"]</label>
+                    <label>Your message (optional) </label>
+                        [textarea details placeholder "Describe your issue"]
                     
                     [submit "Request Support"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form3.webp'
@@ -96,8 +96,8 @@ function agenix_extends_get_form_templates(){
         'newsletter' => [
             'title'   => 'Newsletter Signup',
             'content' => '
-                <label>Your Email 
-                    [email* your-email placeholder "Email"]</label>
+                <label>Your Email </label>
+                    [email* your-email placeholder "Email"]
                 
                 [submit "Subscribe"]',
             'image'   => AGENIX_EXTENDS_URL.'assets/images/form4.jpg'
